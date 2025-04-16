@@ -1,23 +1,123 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.mainHeading {
-    text-align: center;
-    padding: 1rem;
-}
-
-.mainDiv {
+ html {
+    box-sizing: border-box;
+  }
+  
+  .calculator {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    padding: 20px;
+  }
+  
+  .calculator-screen {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .calculator-keys {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    background-color: #da3232;
-    
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .calculator-keys button {
+    flex: 0 0 calc(25% - 10px);
+    height: 60px;
+    font-size: 2rem !important;
+  }
+  
+  .equal-sign {
+    flex: 0 0 100%;
+    height: 60px;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 20px 0;
 }
 
-.content {
-    width: 45%;
-    height: 400px;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .calculator {
+    background-color: #444;
+}
+
+.dark-mode .calculator-screen {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .calculator-keys button {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .btn-info {
+    background-color: #007bff;
+}
+
+.dark-mode .btn-light {
+    background-color: #888;
+}
+
+.dark-mode .btn-danger {
+    background-color: #e74c3c;
+}
+
+.dark-mode .btn-default {
+    background-color: #bbb;
 }
