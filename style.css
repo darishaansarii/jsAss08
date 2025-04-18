@@ -121,3 +121,9 @@ input:checked + .slider:before {
 .dark-mode .btn-default {
     background-color: #bbb;
 }
+
+@media only screen and (max-width: 650px) {
+    .card {
+        margin-top: 15px;
+    }
+}
