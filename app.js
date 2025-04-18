@@ -1,6 +1,12 @@
 var input = document.getElementById("calculator-screen");
+var shouldResetScreen = false;
 
 function numWrite(num) {
+    if (shouldResetScreen) {
+        input.value = "";
+        shouldResetScreen = false;
+    }
+
     if (num === "." && input.value.includes(".")) return;
     if (input.value === "0") input.value = "";
     input.value += num;
@@ -73,10 +79,18 @@ function equal() {
             result = parseFloat(num1) / parseFloat(num2);
         }
     }
+
+    if (!currentOperator) {
+        input.value = input.value;
+        shouldResetScreen = true;
+        return;
+    }
+    
     input.value = result;
     num1 = "";
     num2 = "";
     currentOperator = "";
+    shouldResetScreen = true;
 }
 
 document.getElementById('theme-toggle').addEventListener('click', function () {
